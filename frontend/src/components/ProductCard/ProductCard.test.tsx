@@ -35,10 +35,13 @@ describe('ProductCard test', () => {
                 description={'hello55'}
                 price={777}
                 category={'Электроника'}
+                priceSymbol={'₽'}
             />
         );
 
         expect(rendered.queryByRole('img')).toBeNull();
+
+        expect(rendered.getByText(/₽/)).toBeInTheDocument();
     });
 
     it('should call once getPrice util', () => {
